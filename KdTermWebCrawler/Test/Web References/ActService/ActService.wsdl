@@ -1,0 +1,1583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.jyt360.com.cn/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.jyt360.com.cn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.jyt360.com.cn/">
+      <s:element name="GetServerTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetServerTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetServerTimeResult" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendSmsMsgClient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="msg" type="tns:SMSMsg" />
+            <s:element minOccurs="0" maxOccurs="1" name="mobiles" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="needSendTime" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="companyId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SMSMsg">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MsgInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FkId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PublishUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendSmsMsgClientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendSmsMsgClientResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetSoftVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSoftVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoftVersionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSoftVersionToAuxiliary">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSoftVersionToAuxiliaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSoftVersionToAuxiliaryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUpdateData">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetUpdateDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUpdateDataResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllCityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllCityResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddFavorite">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cpu" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LoginVersion">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginPwd" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LoginTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SysInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Imei" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Cpuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MacAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginIp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SocketMessage">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="QueryNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QueryCard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QueryName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QueryCorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RevertMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendState" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserMacAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserLoginip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserLoginId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssmsNotice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Utype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uno" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ulinkman" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ubirthday" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Utel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Umobile" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ufax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Qq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uaddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VouchuNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uemail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegIp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegIpAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegMacNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginPwd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UprivateInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafeQuestion1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafeAnswer1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafeQuestion2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafeAnswer2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsValid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreateType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsBlack" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MarkXunPass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SmsSurplus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FavoriteSet">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstuctUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenderContent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ftype" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsAndOr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseAttach">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachServerPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttachSize" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsTemp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DownloadCount" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EditCount" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NotifyInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeadName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoScorce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NoticeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoCtx" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemPlan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildNature" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInvest" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanInvest" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuedPlan" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvestSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanBeginDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanEndDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemContent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidMoney" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zgbm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsfzr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsjbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zbdljg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jhlxwh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ghxkzh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ztzje" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fbbfzj" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gclb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gckcdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcsjdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcjldw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsStatistical" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Htmlmd5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsUpdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpQualDemand" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InviteInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zgbm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsfzr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsjbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zbdljg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jhlxwh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ghxkzh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ztzje" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fbbfzj" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gclb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gckcdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcsjdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcjldw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Htmlmd5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsUpdate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="UserOperateLog">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Id" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModuleName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Mid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Cdkey">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Uid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LoginId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifyDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Vision" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="VerifyCount" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Price" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="VerifyUse" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActiveDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContinueCount" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ClientVision" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddFavoriteResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestSocketMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sm" type="tns:SocketMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestSocketMessageResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSocketMessage">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSocketMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSocketMessageResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateState">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sm" type="tns:SocketMessage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateStateResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIP">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetIPResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetIPResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPort">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetPortResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPortResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WebValTime">
+        <s:complexType />
+      </s:element>
+      <s:element name="WebValTimeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WebValTimeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetIp_Port">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginIp" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="port" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetIp_PortResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="ReturnObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnObjectResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="method" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="1" maxOccurs="1" name="flag" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReturnDataTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReturnDataTableResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBidding">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetBiddingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBiddingResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTender">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTenderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTenderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="dateTime" type="s:dateTime" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetServerTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetServerTime" />
+  </wsdl:message>
+  <wsdl:message name="GetServerTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetServerTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsMsgClientSoapIn">
+    <wsdl:part name="parameters" element="tns:SendSmsMsgClient" />
+  </wsdl:message>
+  <wsdl:message name="SendSmsMsgClientSoapOut">
+    <wsdl:part name="parameters" element="tns:SendSmsMsgClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSoftVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSoftVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionToAuxiliarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetSoftVersionToAuxiliary" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionToAuxiliarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetSoftVersionToAuxiliaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUpdateData" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUpdateDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllCity" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddFavoriteSoapIn">
+    <wsdl:part name="parameters" element="tns:AddFavorite" />
+  </wsdl:message>
+  <wsdl:message name="AddFavoriteSoapOut">
+    <wsdl:part name="parameters" element="tns:AddFavoriteResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestSocketMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:TestSocketMessage" />
+  </wsdl:message>
+  <wsdl:message name="TestSocketMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:TestSocketMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSocketMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSocketMessage" />
+  </wsdl:message>
+  <wsdl:message name="GetSocketMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSocketMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateState" />
+  </wsdl:message>
+  <wsdl:message name="UpdateStateSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateStateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetIPSoapIn">
+    <wsdl:part name="parameters" element="tns:GetIP" />
+  </wsdl:message>
+  <wsdl:message name="GetIPSoapOut">
+    <wsdl:part name="parameters" element="tns:GetIPResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPort" />
+  </wsdl:message>
+  <wsdl:message name="GetPortSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortResponse" />
+  </wsdl:message>
+  <wsdl:message name="WebValTimeSoapIn">
+    <wsdl:part name="parameters" element="tns:WebValTime" />
+  </wsdl:message>
+  <wsdl:message name="WebValTimeSoapOut">
+    <wsdl:part name="parameters" element="tns:WebValTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortSoapIn">
+    <wsdl:part name="parameters" element="tns:SetIp_Port" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortSoapOut">
+    <wsdl:part name="parameters" element="tns:SetIp_PortResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnObject" />
+  </wsdl:message>
+  <wsdl:message name="ReturnObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataTableSoapIn">
+    <wsdl:part name="parameters" element="tns:ReturnDataTable" />
+  </wsdl:message>
+  <wsdl:message name="ReturnDataTableSoapOut">
+    <wsdl:part name="parameters" element="tns:ReturnDataTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBiddingSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBidding" />
+  </wsdl:message>
+  <wsdl:message name="GetBiddingSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBiddingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTenderSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTender" />
+  </wsdl:message>
+  <wsdl:message name="GetTenderSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTenderResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetServerTimeHttpGetIn" />
+  <wsdl:message name="GetServerTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionHttpGetIn" />
+  <wsdl:message name="GetSoftVersionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionToAuxiliaryHttpGetIn" />
+  <wsdl:message name="GetSoftVersionToAuxiliaryHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataHttpGetIn" />
+  <wsdl:message name="GetUpdateDataHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCityHttpGetIn">
+    <wsdl:part name="loginId" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCityHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetSocketMessageHttpGetIn" />
+  <wsdl:message name="GetSocketMessageHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetIPHttpGetIn" />
+  <wsdl:message name="GetIPHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPortHttpGetIn" />
+  <wsdl:message name="GetPortHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WebValTimeHttpGetIn" />
+  <wsdl:message name="WebValTimeHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortHttpGetIn">
+    <wsdl:part name="loginIp" type="s:string" />
+    <wsdl:part name="port" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortHttpGetOut" />
+  <wsdl:message name="GetBiddingHttpGetIn" />
+  <wsdl:message name="GetBiddingHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetTenderHttpGetIn" />
+  <wsdl:message name="GetTenderHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetServerTimeHttpPostIn" />
+  <wsdl:message name="GetServerTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:dateTime" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionHttpPostIn" />
+  <wsdl:message name="GetSoftVersionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSoftVersionToAuxiliaryHttpPostIn" />
+  <wsdl:message name="GetSoftVersionToAuxiliaryHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUpdateDataHttpPostIn" />
+  <wsdl:message name="GetUpdateDataHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCityHttpPostIn">
+    <wsdl:part name="loginId" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAllCityHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetSocketMessageHttpPostIn" />
+  <wsdl:message name="GetSocketMessageHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="GetIPHttpPostIn" />
+  <wsdl:message name="GetIPHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPortHttpPostIn" />
+  <wsdl:message name="GetPortHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="WebValTimeHttpPostIn" />
+  <wsdl:message name="WebValTimeHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortHttpPostIn">
+    <wsdl:part name="loginIp" type="s:string" />
+    <wsdl:part name="port" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SetIp_PortHttpPostOut" />
+  <wsdl:message name="GetBiddingHttpPostIn" />
+  <wsdl:message name="GetBiddingHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="GetTenderHttpPostIn" />
+  <wsdl:message name="GetTenderHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:portType name="ActServiceSoap">
+    <wsdl:operation name="GetServerTime">
+      <wsdl:input message="tns:GetServerTimeSoapIn" />
+      <wsdl:output message="tns:GetServerTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsMsgClient">
+      <wsdl:input message="tns:SendSmsMsgClientSoapIn" />
+      <wsdl:output message="tns:SendSmsMsgClientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <wsdl:input message="tns:GetSoftVersionSoapIn" />
+      <wsdl:output message="tns:GetSoftVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <wsdl:input message="tns:GetSoftVersionToAuxiliarySoapIn" />
+      <wsdl:output message="tns:GetSoftVersionToAuxiliarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <wsdl:input message="tns:GetUpdateDataSoapIn" />
+      <wsdl:output message="tns:GetUpdateDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取有所城市</wsdl:documentation>
+      <wsdl:input message="tns:GetAllCitySoapIn" />
+      <wsdl:output message="tns:GetAllCitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFavorite">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">通用方法</wsdl:documentation>
+      <wsdl:input message="tns:AddFavoriteSoapIn" />
+      <wsdl:output message="tns:AddFavoriteSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestSocketMessage">
+      <wsdl:input message="tns:TestSocketMessageSoapIn" />
+      <wsdl:output message="tns:TestSocketMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <wsdl:input message="tns:GetSocketMessageSoapIn" />
+      <wsdl:output message="tns:GetSocketMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <wsdl:input message="tns:UpdateStateSoapIn" />
+      <wsdl:output message="tns:UpdateStateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPSoapIn" />
+      <wsdl:output message="tns:GetIPSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <wsdl:input message="tns:GetPortSoapIn" />
+      <wsdl:output message="tns:GetPortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <wsdl:input message="tns:WebValTimeSoapIn" />
+      <wsdl:output message="tns:WebValTimeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <wsdl:input message="tns:SetIp_PortSoapIn" />
+      <wsdl:output message="tns:SetIp_PortSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnObject">
+      <wsdl:input message="tns:ReturnObjectSoapIn" />
+      <wsdl:output message="tns:ReturnObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataTable">
+      <wsdl:input message="tns:ReturnDataTableSoapIn" />
+      <wsdl:output message="tns:ReturnDataTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <wsdl:input message="tns:GetBiddingSoapIn" />
+      <wsdl:output message="tns:GetBiddingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <wsdl:input message="tns:GetTenderSoapIn" />
+      <wsdl:output message="tns:GetTenderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ActServiceHttpGet">
+    <wsdl:operation name="GetServerTime">
+      <wsdl:input message="tns:GetServerTimeHttpGetIn" />
+      <wsdl:output message="tns:GetServerTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <wsdl:input message="tns:GetSoftVersionHttpGetIn" />
+      <wsdl:output message="tns:GetSoftVersionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <wsdl:input message="tns:GetSoftVersionToAuxiliaryHttpGetIn" />
+      <wsdl:output message="tns:GetSoftVersionToAuxiliaryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <wsdl:input message="tns:GetUpdateDataHttpGetIn" />
+      <wsdl:output message="tns:GetUpdateDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取有所城市</wsdl:documentation>
+      <wsdl:input message="tns:GetAllCityHttpGetIn" />
+      <wsdl:output message="tns:GetAllCityHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <wsdl:input message="tns:GetSocketMessageHttpGetIn" />
+      <wsdl:output message="tns:GetSocketMessageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPHttpGetIn" />
+      <wsdl:output message="tns:GetIPHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <wsdl:input message="tns:GetPortHttpGetIn" />
+      <wsdl:output message="tns:GetPortHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <wsdl:input message="tns:WebValTimeHttpGetIn" />
+      <wsdl:output message="tns:WebValTimeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <wsdl:input message="tns:SetIp_PortHttpGetIn" />
+      <wsdl:output message="tns:SetIp_PortHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <wsdl:input message="tns:GetBiddingHttpGetIn" />
+      <wsdl:output message="tns:GetBiddingHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <wsdl:input message="tns:GetTenderHttpGetIn" />
+      <wsdl:output message="tns:GetTenderHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ActServiceHttpPost">
+    <wsdl:operation name="GetServerTime">
+      <wsdl:input message="tns:GetServerTimeHttpPostIn" />
+      <wsdl:output message="tns:GetServerTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <wsdl:input message="tns:GetSoftVersionHttpPostIn" />
+      <wsdl:output message="tns:GetSoftVersionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <wsdl:input message="tns:GetSoftVersionToAuxiliaryHttpPostIn" />
+      <wsdl:output message="tns:GetSoftVersionToAuxiliaryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <wsdl:input message="tns:GetUpdateDataHttpPostIn" />
+      <wsdl:output message="tns:GetUpdateDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">获取有所城市</wsdl:documentation>
+      <wsdl:input message="tns:GetAllCityHttpPostIn" />
+      <wsdl:output message="tns:GetAllCityHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <wsdl:input message="tns:GetSocketMessageHttpPostIn" />
+      <wsdl:output message="tns:GetSocketMessageHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <wsdl:input message="tns:GetIPHttpPostIn" />
+      <wsdl:output message="tns:GetIPHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <wsdl:input message="tns:GetPortHttpPostIn" />
+      <wsdl:output message="tns:GetPortHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <wsdl:input message="tns:WebValTimeHttpPostIn" />
+      <wsdl:output message="tns:WebValTimeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <wsdl:input message="tns:SetIp_PortHttpPostIn" />
+      <wsdl:output message="tns:SetIp_PortHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <wsdl:input message="tns:GetBiddingHttpPostIn" />
+      <wsdl:output message="tns:GetBiddingHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <wsdl:input message="tns:GetTenderHttpPostIn" />
+      <wsdl:output message="tns:GetTenderHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ActServiceSoap" type="tns:ActServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerTime">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsMsgClient">
+      <soap:operation soapAction="http://www.jyt360.com.cn/SendSmsMsgClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetSoftVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetSoftVersionToAuxiliary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetUpdateData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetAllCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFavorite">
+      <soap:operation soapAction="http://www.jyt360.com.cn/AddFavorite" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestSocketMessage">
+      <soap:operation soapAction="http://www.jyt360.com.cn/TestSocketMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetSocketMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <soap:operation soapAction="http://www.jyt360.com.cn/UpdateState" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetIP" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetPort" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <soap:operation soapAction="http://www.jyt360.com.cn/WebValTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <soap:operation soapAction="http://www.jyt360.com.cn/SetIp_Port" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnObject">
+      <soap:operation soapAction="http://www.jyt360.com.cn/ReturnObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataTable">
+      <soap:operation soapAction="http://www.jyt360.com.cn/ReturnDataTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetBidding" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <soap:operation soapAction="http://www.jyt360.com.cn/GetTender" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActServiceSoap12" type="tns:ActServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetServerTime">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetServerTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSmsMsgClient">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/SendSmsMsgClient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetSoftVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetSoftVersionToAuxiliary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetUpdateData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetAllCity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddFavorite">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/AddFavorite" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestSocketMessage">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/TestSocketMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetSocketMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateState">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/UpdateState" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetIP" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetPort" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/WebValTime" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/SetIp_Port" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnObject">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/ReturnObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnDataTable">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/ReturnDataTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetBidding" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <soap12:operation soapAction="http://www.jyt360.com.cn/GetTender" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActServiceHttpGet" type="tns:ActServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetServerTime">
+      <http:operation location="/GetServerTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <http:operation location="/GetSoftVersion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <http:operation location="/GetSoftVersionToAuxiliary" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <http:operation location="/GetUpdateData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <http:operation location="/GetAllCity" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <http:operation location="/GetSocketMessage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <http:operation location="/GetIP" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <http:operation location="/GetPort" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <http:operation location="/WebValTime" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <http:operation location="/SetIp_Port" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <http:operation location="/GetBidding" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <http:operation location="/GetTender" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ActServiceHttpPost" type="tns:ActServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetServerTime">
+      <http:operation location="/GetServerTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersion">
+      <http:operation location="/GetSoftVersion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSoftVersionToAuxiliary">
+      <http:operation location="/GetSoftVersionToAuxiliary" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUpdateData">
+      <http:operation location="/GetUpdateData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCity">
+      <http:operation location="/GetAllCity" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSocketMessage">
+      <http:operation location="/GetSocketMessage" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIP">
+      <http:operation location="/GetIP" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPort">
+      <http:operation location="/GetPort" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebValTime">
+      <http:operation location="/WebValTime" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetIp_Port">
+      <http:operation location="/SetIp_Port" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetBidding">
+      <http:operation location="/GetBidding" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTender">
+      <http:operation location="/GetTender" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ActService">
+    <wsdl:port name="ActServiceSoap" binding="tns:ActServiceSoap">
+      <soap:address location="http://www.jyt360.com.cn/WebService/ActService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActServiceSoap12" binding="tns:ActServiceSoap12">
+      <soap12:address location="http://www.jyt360.com.cn/WebService/ActService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActServiceHttpGet" binding="tns:ActServiceHttpGet">
+      <http:address location="http://www.jyt360.com.cn/WebService/ActService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ActServiceHttpPost" binding="tns:ActServiceHttpPost">
+      <http:address location="http://www.jyt360.com.cn/WebService/ActService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

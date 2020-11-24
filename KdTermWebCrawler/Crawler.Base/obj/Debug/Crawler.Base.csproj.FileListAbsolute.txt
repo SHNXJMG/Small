@@ -1,0 +1,22 @@
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.dll.config
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.pdb
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\log4net.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\Winista.HtmlParser.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csprojAssemblyReference.cache
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csproj.CoreCompileInputs.cache
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csproj.CopyComplete
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.pdb
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.dll.config
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.dll
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\Crawler.Base.pdb
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\log4net.dll
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\Winista.HtmlParser.dll
+D:\Desktop\KdTermWebCrawler\Crawler.Base\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Desktop\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csprojAssemblyReference.cache
+D:\Desktop\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csproj.CoreCompileInputs.cache
+D:\Desktop\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.csproj.CopyComplete
+D:\Desktop\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.dll
+D:\Desktop\KdTermWebCrawler\Crawler.Base\obj\Debug\Crawler.Base.pdb

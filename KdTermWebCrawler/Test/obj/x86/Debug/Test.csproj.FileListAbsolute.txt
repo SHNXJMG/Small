@@ -1,0 +1,44 @@
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.csprojAssemblyReference.cache
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.Form1.resources
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.Properties.Resources.resources
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.GenerateResource.cache
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.CoreCompileInputs.cache
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Test.exe.config
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Test.exe
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Test.pdb
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Crawler.Instance.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\log4net.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Newtonsoft.Json.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Winista.HtmlParser.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\BouncyCastle.Crypto.dll
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.pdb
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.dll.config
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\Crawler.Instance.pdb
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.CopyComplete
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.exe
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\obj\x86\Debug\Test.pdb
+D:\工作项目\一点通抓取\1 源代码\1.1 系统代码\客户端抓取\KdTermWebCrawler\Test\bin\Debug\KdCore.Base.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Test.exe.config
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Test.exe
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Test.pdb
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Crawler.Instance.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\log4net.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Newtonsoft.Json.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Winista.HtmlParser.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\BouncyCastle.Crypto.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\KdCore.Base.dll
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.pdb
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Crawler.Base.dll.config
+D:\Desktop\KdTermWebCrawler\Test\bin\Debug\Crawler.Instance.pdb
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.csprojAssemblyReference.cache
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.Form1.resources
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.Properties.Resources.resources
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.GenerateResource.cache
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.CoreCompileInputs.cache
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.csproj.CopyComplete
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.exe
+D:\Desktop\KdTermWebCrawler\Test\obj\x86\Debug\Test.pdb

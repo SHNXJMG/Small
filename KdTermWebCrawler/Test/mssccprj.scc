@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[Test.csproj]
+SCC_Aux_Path = "\\192.168.0.2\ydt_zq$"
+SCC_Project_Name = "$/1 源代码/1.1 系统代码/客户端抓取/KdWebCrawler/Test", GKDAAAAA

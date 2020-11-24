@@ -1,0 +1,1485 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="AddItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfAnyType" />
+            <s:element minOccurs="0" maxOccurs="1" name="isExistFields" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="listAttachs" type="tns:ArrayOfBaseAttach" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdateCtx" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="existFields" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdateAttach" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfBaseAttach">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BaseAttach" nillable="true" type="tns:BaseAttach" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseAttach">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompanyId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachServerPath" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttachSize" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttachType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other3" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other4" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsTemp" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DownloadCount" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EditCount" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectLic">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildScale" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjPrice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjStartDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuperUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuperManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProspUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProspManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjManager" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialPerson" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjLicCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjLicDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Createtime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectFinish">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Createtime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjEndCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjEndDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuperUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectConpact">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Createtime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgrName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgrQual" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CompactPrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecordDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CompactType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubcontractCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubcontractName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubcontractCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Investment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildKind" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvestKind" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Linkman" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkmanTel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprResult" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LandApprNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LandPlanNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TextCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ExpertInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpertName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WorkUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Profession" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditAppraise">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetClass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CreditAction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TargetUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActionDateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ActionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpWarning">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeliveryDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="WarningType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PunishmentType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalScore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResultScore" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublicEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarningEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BadInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Color" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifierTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpTecStaff">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdCard" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SaffType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpStaffReg">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CredCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegClassName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MajorClassName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpStaffCert">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertMajor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpStaff">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CredType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IdNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AuthorUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertGrade" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Profession" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StaffNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCollect" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuanceTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Organ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertState" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpSecLicStaff">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PersonCertNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpSecLic">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecLicCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecLicDesc" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidStartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidStartEnd" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecLicUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpResults">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeDept" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjClassLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProspUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuperUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjStartDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjEndDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpQual">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualSeq" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ValidDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualNum" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpPunish">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PunishType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PunishCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsShow" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpPrompt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RecordInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImplUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsGood" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpMerit">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritYear" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritRegion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritSector" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritPrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjSupporter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Modifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Details" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeritType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ManCost" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PileConsUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildingType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpLeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeaderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeaderDuty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeaderType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpInstitution">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DtlAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ResInstitution" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RegDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalSafetyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TechSafetyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafetyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualitySafetyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalReMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TechReMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SafeReMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualityReMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegFund" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkMan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LinkPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsoQualNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsoEnvironNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsCollect" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TechnologyMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="QualType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpLevey" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OffAdr" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpDevice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceSpec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeviceCount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpCreditss">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ranking" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryRank" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QualityScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="MarketScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProjectScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="WaterScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalcuDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MunicipalScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpCreditjd">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpRank" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpCategory" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ranking" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CategoryRank" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalcuBeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="CalcuEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidHtml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvgScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="GoodScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BadScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsNew" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidUnitInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegisterMode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidMember" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SignUpDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifierTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidSituation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublicityEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifierTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ctx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Html" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidProjectResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidProjectId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TenderUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TenderPriceTotal" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TenderPrice1" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TenderPrice2" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="FallRate" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="DeviationDegree" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BusiScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BusiWeights" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TechScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TechWeights" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreditWeights" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalScore" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidProjectNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidProjectName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidProjectExpert">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidProjectId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpertName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpertSpec" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpertUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidProject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpertEndTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidResultEndTime" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BasePrice" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjState" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BaseProject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Createtime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ChargeDept" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjClassLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjClass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteArea" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProspUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DesignUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuperUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConstUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjStartDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="PrjEndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BuildTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MeetInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MeetPlace" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NotifyInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HeadName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReleaseTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoScorce" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Province" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="NoticeInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoCtx" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PublishTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Other2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ItemPlan">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildNature" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalInvest" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanInvest" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="IssuedPlan" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvestSource" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlanDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanBeginDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlanEndDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemContent" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BidInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BidType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidMoney" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrjMgr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zgbm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsfzr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsjbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zbdljg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jhlxwh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ghxkzh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ztzje" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fbbfzj" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gclb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gckcdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcsjdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcjldw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AgentUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsStatistical" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Htmlmd5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsUpdate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpQualDemand" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InviteInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Road" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectAddr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteCtx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifyTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InviteType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpeType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OtherType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CtxHtml" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zgbm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsfzr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jsjbr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Zbdljg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Jhlxwh" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ghxkzh" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ztzje" nillable="true" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fbbfzj" nillable="true" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gclb" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gckcdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcsjdw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Gcjldw" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Htmlmd5" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsUpdate" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BuildUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinalistsWay" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RevStaMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetStaMethod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="VoteMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RevStaDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Prov" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Area" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Creator" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreateTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastModifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastModifierTime" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="InfoUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MsgType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ctx" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Html" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BeginDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpAward">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AwardName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AwardDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AwardLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GrantUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProjectResultDtl">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SourceId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="BidDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsBid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="Ranking" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="WinNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TicketNumber" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="CorpCert">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CertInfo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Url" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsDeleted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsChanged" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddItemResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="newList" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveEntity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="entity" />
+            <s:element minOccurs="0" maxOccurs="1" name="isExistFields" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdate" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="isUpdateCtx" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="existFields" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveEntityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveEntityResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDbData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDbDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDbDataResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScalar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteScalarResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExecuteScalarResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteSql">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sql" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteSqlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ExecuteSqlResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteProcedure">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="proName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExecuteProcedureResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="DataTable" nillable="true">
+        <s:complexType>
+          <s:sequence>
+            <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+            <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="anyType" nillable="true" />
+      <s:element name="int" type="s:int" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddItemSoapIn">
+    <wsdl:part name="parameters" element="tns:AddItem" />
+  </wsdl:message>
+  <wsdl:message name="AddItemSoapOut">
+    <wsdl:part name="parameters" element="tns:AddItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveEntitySoapIn">
+    <wsdl:part name="parameters" element="tns:SaveEntity" />
+  </wsdl:message>
+  <wsdl:message name="SaveEntitySoapOut">
+    <wsdl:part name="parameters" element="tns:SaveEntityResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDbDataSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDbData" />
+  </wsdl:message>
+  <wsdl:message name="GetDbDataSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDbDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteScalar" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteScalarResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteSql" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteSqlResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureSoapIn">
+    <wsdl:part name="parameters" element="tns:ExecuteProcedure" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureSoapOut">
+    <wsdl:part name="parameters" element="tns:ExecuteProcedureResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDbDataHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDbDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarHttpGetOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlHttpGetIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureHttpGetIn">
+    <wsdl:part name="proName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureHttpGetOut" />
+  <wsdl:message name="GetDbDataHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDbDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:DataTable" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteScalarHttpPostOut">
+    <wsdl:part name="Body" element="tns:anyType" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlHttpPostIn">
+    <wsdl:part name="sql" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteSqlHttpPostOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureHttpPostIn">
+    <wsdl:part name="proName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ExecuteProcedureHttpPostOut" />
+  <wsdl:portType name="CrawlerServiceSoap">
+    <wsdl:operation name="AddItem">
+      <wsdl:input message="tns:AddItemSoapIn" />
+      <wsdl:output message="tns:AddItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveEntity">
+      <wsdl:input message="tns:SaveEntitySoapIn" />
+      <wsdl:output message="tns:SaveEntitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDbData">
+      <wsdl:input message="tns:GetDbDataSoapIn" />
+      <wsdl:output message="tns:GetDbDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <wsdl:input message="tns:ExecuteScalarSoapIn" />
+      <wsdl:output message="tns:ExecuteScalarSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <wsdl:input message="tns:ExecuteSqlSoapIn" />
+      <wsdl:output message="tns:ExecuteSqlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <wsdl:input message="tns:ExecuteProcedureSoapIn" />
+      <wsdl:output message="tns:ExecuteProcedureSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CrawlerServiceHttpGet">
+    <wsdl:operation name="GetDbData">
+      <wsdl:input message="tns:GetDbDataHttpGetIn" />
+      <wsdl:output message="tns:GetDbDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <wsdl:input message="tns:ExecuteScalarHttpGetIn" />
+      <wsdl:output message="tns:ExecuteScalarHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <wsdl:input message="tns:ExecuteSqlHttpGetIn" />
+      <wsdl:output message="tns:ExecuteSqlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <wsdl:input message="tns:ExecuteProcedureHttpGetIn" />
+      <wsdl:output message="tns:ExecuteProcedureHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CrawlerServiceHttpPost">
+    <wsdl:operation name="GetDbData">
+      <wsdl:input message="tns:GetDbDataHttpPostIn" />
+      <wsdl:output message="tns:GetDbDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <wsdl:input message="tns:ExecuteScalarHttpPostIn" />
+      <wsdl:output message="tns:ExecuteScalarHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <wsdl:input message="tns:ExecuteSqlHttpPostIn" />
+      <wsdl:output message="tns:ExecuteSqlHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <wsdl:input message="tns:ExecuteProcedureHttpPostIn" />
+      <wsdl:output message="tns:ExecuteProcedureHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CrawlerServiceSoap" type="tns:CrawlerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddItem">
+      <soap:operation soapAction="http://tempuri.org/AddItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEntity">
+      <soap:operation soapAction="http://tempuri.org/SaveEntity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDbData">
+      <soap:operation soapAction="http://tempuri.org/GetDbData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <soap:operation soapAction="http://tempuri.org/ExecuteScalar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <soap:operation soapAction="http://tempuri.org/ExecuteSql" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <soap:operation soapAction="http://tempuri.org/ExecuteProcedure" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CrawlerServiceSoap12" type="tns:CrawlerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddItem">
+      <soap12:operation soapAction="http://tempuri.org/AddItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveEntity">
+      <soap12:operation soapAction="http://tempuri.org/SaveEntity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDbData">
+      <soap12:operation soapAction="http://tempuri.org/GetDbData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteScalar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteSql" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <soap12:operation soapAction="http://tempuri.org/ExecuteProcedure" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CrawlerServiceHttpGet" type="tns:CrawlerServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetDbData">
+      <http:operation location="/GetDbData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <http:operation location="/ExecuteScalar" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <http:operation location="/ExecuteSql" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <http:operation location="/ExecuteProcedure" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CrawlerServiceHttpPost" type="tns:CrawlerServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetDbData">
+      <http:operation location="/GetDbData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteScalar">
+      <http:operation location="/ExecuteScalar" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteSql">
+      <http:operation location="/ExecuteSql" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExecuteProcedure">
+      <http:operation location="/ExecuteProcedure" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CrawlerService">
+    <wsdl:port name="CrawlerServiceSoap" binding="tns:CrawlerServiceSoap">
+      <soap:address location="http://localhost:6696/WebService/CrawlerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CrawlerServiceSoap12" binding="tns:CrawlerServiceSoap12">
+      <soap12:address location="http://localhost:6696/WebService/CrawlerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CrawlerServiceHttpGet" binding="tns:CrawlerServiceHttpGet">
+      <http:address location="http://localhost:6696/WebService/CrawlerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CrawlerServiceHttpPost" binding="tns:CrawlerServiceHttpPost">
+      <http:address location="http://localhost:6696/WebService/CrawlerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
